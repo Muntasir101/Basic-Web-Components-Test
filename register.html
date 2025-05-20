@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - User Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navigation">
+        <a href="index.html" class="nav-logo">UserSys</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="link-text">Home</a></li>
+            <li><a href="login.html" class="link-text">Login</a></li>
+            <li><a href="register.html" class="link-text active-nav">Register</a></li>
+        </ul>
+    </nav>
+
+    <div class="breadcrumbs-container">
+        <ul class="breadcrumbs">
+            <li><a href="index.html" class="link-text">Home</a></li>
+            <li>Register</li>
+        </ul>
+    </div>
+
+    <main class="container auth-container">
+        <h1>Create an Account</h1>
+        <form id="register-form">
+            <div id="register-message" class="message" style="display:none;"></div>
+
+            <div class="form-group tooltip-trigger">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" class="text-input" required>
+                <span class="tooltip-text bottom">Enter your full name as it appears on official documents.</span>
+            </div>
+
+            <div class="form-group tooltip-trigger">
+                <label for="username">Username:</label>
+                <input type="text" id="username" class="text-input" required minlength="4">
+                <span class="tooltip-text bottom">Minimum 4 characters, alphanumeric.</span>
+            </div>
+
+            <div class="form-group tooltip-trigger">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" class="text-input" required>
+                <span class="tooltip-text bottom">A valid email address is required for account verification.</span>
+            </div>
+
+            <div class="form-group tooltip-trigger">
+                <label for="password">Password:</label>
+                <input type="password" id="password" class="text-input" required minlength="6">
+                <span class="tooltip-text bottom">Minimum 6 characters. Include uppercase, lowercase, and numbers for better security.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" class="text-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" class="date-picker-input" required>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="radio-group-container">
+                    <div class="radio-group">
+                        <input type="radio" id="gender-male" name="gender" class="radio-input" value="Male" required>
+                        <label for="gender-male" class="radio-label">Male</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="gender-female" name="gender" class="radio-input" value="Female">
+                        <label for="gender-female" class="radio-label">Female</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="gender-other" name="gender" class="radio-input" value="Other">
+                        <label for="gender-other" class="radio-label">Other</label>
+                    </div>
+                     <div class="radio-group">
+                        <input type="radio" id="gender-na" name="gender" class="radio-input" value="Prefer not to say">
+                        <label for="gender-na" class="radio-label">Prefer not to say</label>
+                    </div>
+                </div>
+            </div>
+             <div class="form-group">
+                <label for="address">Address Line 1:</label>
+                <input type="text" id="address" class="text-input">
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" id="city" class="text-input">
+            </div>
+
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" class="checkbox-input" required>
+                    <label for="terms" class="checkbox-label">I agree to the <a href="#" class="link-text">Terms and Conditions</a></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="newsletter-toggle">Subscribe to Newsletter:</label>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="newsletter-toggle" class="toggle-input">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="button primary-button full-width">Register</button>
+            </div>
+        </form>
+        <p class="text-center">
+            Already have an account? <a href="login.html" class="link-text">Login here</a>
+        </p>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+             <p>&copy; <span id="current-year"></span> UserSys. All rights reserved. (Dhaka, Bangladesh)</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

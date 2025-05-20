@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to UserSys - Modern User Management</title>
+    <link rel="stylesheet" href="css/style.css"> <style>
+        /* Homepage-specific styles */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.85), rgba(46, 204, 113, 0.75)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dGVhbSUyMGNvbGxhYm9yYXRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=1400&q=80') no-repeat center center;
+            /* Replace with your own image or keep the gradient only */
+            /* background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); */
+            background-size: cover;
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 70vh; /* Ensure it takes a good portion of the viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: inset 0 -50px 50px -50px rgba(0,0,0,0.2); /* Subtle inner shadow at bottom */
+        }
+        .hero-section h1 {
+            font-size: 3.5em; /* Larger hero title */
+            font-weight: 700;
+            margin-bottom: 0.5em;
+            color: #fff; /* Ensure white color for hero title */
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3); /* Text shadow for readability */
+        }
+        .hero-section p {
+            font-size: 1.3em; /* Larger hero subtitle */
+            margin-bottom: 1.5em;
+            max-width: 700px;
+            line-height: 1.6;
+            font-weight: 400;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+        }
+        .hero-section .button {
+            margin: 0.5em;
+            padding: 15px 35px; /* Larger CTA buttons */
+            font-size: 1.1em;
+        }
+        .hero-section .primary-button {
+            background-color: var(--color-bg-container); /* White button */
+            color: var(--color-primary); /* Blue text */
+            border: 2px solid var(--color-bg-container);
+        }
+         .hero-section .primary-button:hover {
+            background-color: transparent;
+            color: var(--color-bg-container);
+            border-color: var(--color-bg-container);
+        }
+        .hero-section .secondary-button {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+        .hero-section .secondary-button:hover {
+            background-color: #fff;
+            color: var(--color-primary);
+        }
+
+        .features-section, .about-section, .cta-section {
+            padding: 80px 20px; /* More vertical padding */
+            text-align: center;
+        }
+        .features-section h2, .about-section h2, .cta-section h2 {
+            font-size: 2.5em; /* Larger section titles */
+            margin-bottom: 1em;
+            color: var(--color-text);
+        }
+        .features-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px; /* Spacing between feature items */
+            margin-top: 40px;
+        }
+        .feature-item {
+            background-color: var(--color-bg-container);
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-soft);
+            flex: 1 1 300px; /* Flex properties for responsiveness */
+            max-width: 350px;
+            text-align: left; /* Align text left within feature item */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+        .feature-item svg { /* Placeholder for icons */
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+        .feature-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 0.5em;
+            font-family: var(--font-primary);
+            color: var(--color-primary);
+        }
+        .feature-item p {
+            font-size: 1em;
+            color: var(--color-text-light);
+            line-height: 1.7;
+        }
+        .about-section p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+        .cta-section {
+            background-color: var(--color-bg-input); /* Light background for CTA */
+            border-radius: var(--border-radius-lg);
+            margin: 40px auto;
+            max-width: 1100px; /* Match container width */
+        }
+        .cta-section .button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+        }
+
+        /* Ensure navigation on homepage is styled correctly */
+        .navigation .nav-links a.active-nav { /* Overwrite if any other page script adds it */
+             background-color: transparent;
+             color: var(--color-text); /* Default state for home */
+        }
+        /* Specific active state for homepage "Home" link if we add one */
+         .navigation .nav-links a[href="index.html"].active-nav {
+             color: var(--color-primary);
+             background-color: rgba(52, 152, 219, 0.1);
+         }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navigation">
+        <a href="index.html" class="nav-logo">UserSys</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="link-text active-nav">Home</a></li> <li><a href="#features-section" class="link-text">Features</a></li>
+            <li><a href="#about-section" class="link-text">About</a></li>
+            <li><a href="login.html" class="link-text">Login</a></li>
+            <li><a href="register.html" class="button primary-button" style="padding: 8px 15px; margin-left: 15px;">Sign Up</a></li> </ul>
+    </nav>
+
+    <section class="hero-section">
+        <h1>Modern User Management, Simplified.</h1>
+        <p>Join UserSys today to effortlessly manage your user accounts with our secure, intuitive, and feature-rich platform designed for modern applications.</p>
+        <div>
+            <a href="register.html" class="button primary-button">Get Started Free</a>
+            <a href="#features-section" class="button secondary-button">Learn More</a>
+        </div>
+    </section>
+
+    <main> <section id="features-section" class="features-section">
+            <div class="container"> <h2>Why Choose UserSys?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"> <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/> </svg>
+                        <h3>Secure Authentication</h3>
+                        <p>Robust login and registration processes ensure your user data is protected with modern security practices.</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"> <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h3a.5.5 0 0 1 0 1h-3v1a.5.5 0 0 1-1 0v-1h-3a.5.5 0 0 1 0-1h3v-1a.5.5 0 0 1 1 0ZM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 1c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4Z"/> </svg>
+                        <h3>Easy User Management</h3>
+                        <p>View and manage your registered users effortlessly through a clean, paginated interface with filtering options.</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"> <path d="M11 1a2 2 0 0 0-2 2v2H7V3a2 2 0 0 0-4 0v2H1V3a2 2 0 0 0-1 1.732V15h14V4.732A2 2 0 0 0 13 3V1Zm-5.5 3h3a.5.5 0 0 1 .5.5V9a.5.5 0 0 1-1 0V6h-1.5a.5.5 0 0 1 0-1H10V3.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5V13a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5V3.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5V6H4V4.5a.5.5 0 0 1 .5-.5h1Z"/> </svg>
+                        <h3>Modern Interface</h3>
+                        <p>Built with a responsive and attractive design, providing an excellent user experience on any device.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-section" class="about-section" style="background-color: var(--color-bg-input);">
+            <div class="container">
+                <h2>About UserSys</h2>
+                <p>UserSys is a demonstration application showcasing a complete user registration, login, and management flow. It highlights modern web development practices, including responsive design, client-side data handling (via localStorage for this demo), and a focus on user experience. Built as a portfolio piece, it integrates various UI components into a cohesive and functional system.</p>
+                <p style="font-size: 0.9em; color: var(--color-text-light); margin-top: 20px;">Current date: <span id="current-date-display"></span>, Location: Dhaka, Bangladesh.</p>
+
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Take Control?</h2>
+                <p style="max-width: 600px; margin: 0 auto 30px auto; color: var(--color-text-light);">Join thousands of users who trust UserSys for their management needs. It's free to get started!</p>
+                <a href="register.html" class="button primary-button">Sign Up Now &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>UserSys</h4>
+                <p style="color: var(--color-text-light); font-size: 0.9em;">Simplifying user management with a modern touch. Your go-to solution for easy and secure account handling.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="register.html" class="link-text">Register</a></li>
+                    <li><a href="login.html" class="link-text">Login</a></li>
+                    <li><a href="#features-section" class="link-text">Features</a></li>
+                    <li><a href="#about-section" class="link-text">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#" class="link-text">Privacy Policy</a></li>
+                    <li><a href="#" class="link-text">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <p style="color: var(--color-text-light); font-size: 0.9em;">
+                    info@usersys.example.com<br>
+                    Dhaka, Bangladesh
+                </p>
+                </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> UserSys. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/ui.js"></script>
+    <script>
+        // Homepage specific UI script
+        document.addEventListener('DOMContentLoaded', function() {
+            // For active nav link on homepage
+            const navLinks = document.querySelectorAll('.navigation .nav-links a');
+            const homeLink = document.querySelector('.navigation .nav-links a[href="index.html"]');
+
+            navLinks.forEach(link => link.classList.remove('active-nav')); // Clear all
+            if (homeLink) {
+                homeLink.classList.add('active-nav'); // Set home active
+            }
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Display current date in About section
+            const dateDisplay = document.getElementById('current-date-display');
+            if (dateDisplay) {
+                const today = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                dateDisplay.textContent = today.toLocaleDateString('en-US', options); // Adjust locale as needed
+            }
+        });
+    </script>
+</body>
+</html>

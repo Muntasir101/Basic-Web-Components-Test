@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - UserSys</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .profile-container {
+            background-color: var(--color-bg-container);
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-medium);
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--color-border-light);
+            padding-bottom: 20px;
+        }
+        .profile-header h1 {
+            color: var(--color-primary);
+            font-size: 2.2em;
+            margin-bottom: 5px;
+        }
+        .profile-header .username-display {
+            font-size: 1.2em;
+            color: var(--color-text-light);
+        }
+        .profile-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 25px;
+        }
+        .detail-item {
+            background-color: var(--color-bg-input); /* Light background for items */
+            padding: 15px;
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--color-border-light);
+        }
+        .detail-item strong {
+            display: block;
+            font-family: var(--font-primary);
+            color: var(--color-text);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        .detail-item span {
+            font-size: 1em;
+            color: var(--color-text-light);
+        }
+        .profile-actions {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .profile-actions .button {
+            margin: 0 10px;
+        }
+        #profile-not-found {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2em;
+            color: var(--color-error);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navigation">
+        <a href="index.html" class="nav-logo">UserSys</a>
+        <ul class="nav-links">
+            <li><a href="users.html" class="link-text">Users</a></li>
+            <li><a href="#" id="logout-link" class="link-text">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="breadcrumbs-container">
+        <ul class="breadcrumbs">
+            <li><a href="index.html" class="link-text">Home</a></li>
+            <li><a href="users.html" class="link-text">Users</a></li>
+            <li id="breadcrumb-profile-name">Profile</li> </ul>
+    </div>
+
+    <main>
+        <div id="profile-view-container" class="profile-container" style="display: none;">
+            <div class="profile-header">
+                <h1 id="profile-fullname"></h1>
+                <p class="username-display">@<span id="profile-username"></span></p>
+            </div>
+
+            <div class="profile-details">
+                <div class="detail-item">
+                    <strong>Email Address:</strong>
+                    <span id="profile-email"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Date of Birth:</strong>
+                    <span id="profile-dob"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Gender:</strong>
+                    <span id="profile-gender"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Address:</strong>
+                    <span id="profile-address">N/A</span>
+                </div>
+                <div class="detail-item">
+                    <strong>City:</strong>
+                    <span id="profile-city">N/A</span>
+                </div>
+                <div class="detail-item">
+                    <strong>Newsletter Subscription:</strong>
+                    <span id="profile-newsletter"></span>
+                </div>
+                 <div class="detail-item">
+                    <strong>User ID:</strong>
+                    <span id="profile-id" style="font-size: 0.8em; color: var(--color-text-placeholder)"></span>
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <a href="users.html" class="button secondary-button">&larr; Back to User List</a>
+            </div>
+        </div>
+        <div id="profile-not-found" class="container" style="display: none;">
+            <h2>User Not Found</h2>
+            <p>The profile you are trying to view does not exist or you do not have permission to view it.</p>
+            <a href="users.html" class="button primary-button">&larr; Back to User List</a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="users.html" class="link-text">User List</a></li>
+                    <li><a href="#" class="link-text">Help Center</a></li>
+                </ul>
+            </div>
+             <div class="footer-section">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="#" id="footer-logout-link" class="link-text">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> UserSys. All rights reserved. (Dhaka, Bangladesh)</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script> <script src="js/profile.js"></script>
+    <script src="js/ui.js"></script> </body>
+</html>

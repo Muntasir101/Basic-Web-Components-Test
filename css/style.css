@@ -1,0 +1,717 @@
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* --- CSS Variables (Color Palette & Fonts) --- */
+:root {
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+
+    --color-primary: #3498db; /* Vibrant Blue */
+    --color-primary-dark: #2980b9;
+    --color-secondary: #2ecc71; /* Friendly Green */
+    --color-secondary-dark: #27ae60;
+
+    --color-text: #34495e; /* Dark Desaturated Blue */
+    --color-text-light: #7f8c8d; /* Gray */
+    --color-text-placeholder: #95a5a6;
+
+    --color-bg-body: #ecf0f1; /* Very Light Gray */
+    --color-bg-container: #ffffff; /* White */
+    --color-bg-input: #f8f9fa; /* Slightly Off-White for Inputs */
+
+    --color-border: #bdc3c7; /* Light Gray Border */
+    --color-border-light: #e0e0e0;
+
+    --color-success: #2ecc71;
+    --color-error: #e74c3c; /* Red */
+    --color-warning: #f39c12; /* Yellow/Orange */
+
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 6px 20px rgba(0, 0, 0, 0.1);
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+}
+
+/* --- General Styles --- */
+body {
+    font-family: var(--font-secondary);
+    margin: 0;
+    line-height: 1.7; /* Improved line height for readability */
+    background-color: var(--color-bg-body);
+    color: var(--color-text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased; /* Smoother fonts */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    flex-grow: 1;
+    max-width: 1100px; /* Slightly wider for modern layouts */
+    margin: 30px auto; /* More vertical margin */
+    padding: 30px;   /* More padding */
+    background-color: var(--color-bg-container);
+    border-radius: var(--border-radius-lg); /* Softer, larger radius */
+    box-shadow: var(--shadow-medium);
+}
+
+.auth-container {
+    max-width: 500px; /* Keep auth forms concise */
+    margin-top: 50px; /* More top margin for standalone feel */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    margin-top: 0;
+    margin-bottom: 0.75em; /* Adjusted margin */
+    font-weight: 600; /* Bolder headings */
+}
+h1 {
+    font-size: 2.25em; /* Slightly larger H1 */
+    text-align: center;
+    margin-bottom: 1em;
+    color: var(--color-primary);
+}
+.auth-container h1 {
+    font-size: 1.8em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+/* --- Link Text --- */
+.link-text {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500; /* Slightly bolder links */
+    transition: color 0.2s ease;
+}
+.link-text:hover, .link-text:focus {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+/* --- Navigation --- */
+.navigation {
+    background-color: var(--color-bg-container);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--color-border-light);
+}
+.nav-logo {
+    font-family: var(--font-primary);
+    font-size: 1.75em;
+    font-weight: 700; /* Extra bold logo */
+    color: var(--color-primary);
+    text-decoration: none;
+}
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.nav-links li {
+    margin-left: 25px; /* More spacing */
+}
+.nav-links a {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    font-weight: 500;
+    padding: 10px 15px; /* More padding for a larger click area */
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.95em;
+}
+.nav-links a.active-nav,
+.nav-links a:hover {
+    color: var(--color-primary);
+    background-color: rgba(52, 152, 219, 0.1); /* Light primary background */
+}
+
+/* --- Breadcrumbs --- */
+.breadcrumbs-container {
+    background-color: transparent; /* Cleaner look */
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border-light);
+    margin-bottom: 20px;
+}
+.breadcrumbs {
+    max-width: 1100px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    font-size: 0.9em;
+    color: var(--color-text-light);
+}
+.breadcrumbs li:not(:last-child)::after {
+    content: "/"; /* Modern separator */
+    margin: 0 8px; /* More space around separator */
+    color: var(--color-border);
+}
+.breadcrumbs li a {
+    color: var(--color-primary);
+}
+
+/* --- Accordion --- */
+.accordion {
+    margin-bottom: 25px;
+}
+.accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03); /* Subtle shadow for items */
+}
+.accordion-header {
+    background-color: var(--color-bg-container);
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 15px 20px; /* More padding */
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 1.05em; /* Slightly larger header text */
+    font-weight: 600;
+    font-family: var(--font-primary);
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Pushes icon to the right */
+}
+.accordion-header svg {
+    margin-right: 0; /* No margin needed if using justify-content */
+    transition: transform 0.3s ease;
+}
+.accordion-header.active svg {
+    transform: rotate(180deg); /* Rotate icon when active */
+}
+.accordion-header:hover {
+    background-color: rgba(52, 152, 219, 0.05); /* Light primary hover */
+}
+.accordion-header.active {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--color-primary);
+}
+.accordion-content {
+    padding: 0 20px;
+    background-color: var(--color-bg-container);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    border-top: 1px solid var(--color-border-light); /* Separator */
+}
+.accordion-header.active + .accordion-content {
+    padding: 20px;
+}
+
+/* --- Button Styles --- */
+.button {
+    display: inline-block;
+    padding: 12px 25px; /* Generous padding */
+    font-size: 1em;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border-radius: var(--border-radius-md); /* Consistent rounded corners */
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+    border: 1px solid transparent; /* Base border */
+    user-select: none; /* Prevent text selection */
+}
+.button:active {
+    transform: translateY(1px); /* Subtle press effect */
+}
+.button.primary-button {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.2); /* Subtle shadow for primary */
+}
+.button.primary-button:hover, .button.primary-button:focus {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+.button.secondary-button {
+    background-color: var(--color-bg-input);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+.button.secondary-button:hover, .button.secondary-button:focus {
+    background-color: #e9ecef; /* Slightly darker */
+    border-color: #adb5bd;
+    color: var(--color-text);
+}
+/* Ghost button style (example, if needed) */
+.button.ghost-button {
+    background-color: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+.button.ghost-button:hover, .button.ghost-button:focus {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+.button.full-width {
+    width: 100%;
+    padding: 14px; /* Slightly larger for full-width */
+}
+
+/* --- Form Elements --- */
+.form-group {
+    margin-bottom: 20px; /* More spacing between groups */
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px; /* More space below label */
+    font-weight: 600; /* Bolder labels */
+    font-size: 0.9em;
+    font-family: var(--font-primary);
+    color: var(--color-text);
+}
+.text-input,
+.date-picker-input,
+select.text-input /* If you add select elements */ {
+    width: 100%; /* Make inputs full width by default */
+    padding: 12px 15px; /* Comfortable padding */
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    font-size: 1em;
+    font-family: var(--font-secondary);
+    background-color: var(--color-bg-input);
+    color: var(--color-text);
+    box-sizing: border-box; /* Important for width: 100% */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.text-input::placeholder {
+    color: var(--color-text-placeholder);
+    opacity: 1; /* Ensure placeholder is visible */
+}
+.text-input:focus,
+.date-picker-input:focus,
+select.text-input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15); /* Modern focus ring */
+    background-color: var(--color-bg-container);
+}
+
+/* Checkbox & Radio Button (Modernized) */
+.checkbox-group, .radio-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Spacing for multiple options */
+}
+.checkbox-label, .radio-label {
+    margin-left: 10px; /* More space from input */
+    font-weight: normal;
+    cursor: pointer;
+    color: var(--color-text);
+    font-size: 0.95em;
+    user-select: none;
+}
+.checkbox-input, .radio-input {
+    cursor: pointer;
+    accent-color: var(--color-primary); /* Uses browser's modern styling */
+    width: 18px; /* Slightly larger */
+    height: 18px;
+    margin: 0; /* Remove default margin */
+    position: relative;
+    top: -1px; /* Fine-tune alignment */
+}
+.radio-group-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* More gap */
+}
+
+/* Toggle Switch (Slightly larger and modern) */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px; /* Wider */
+    height: 28px; /* Taller */
+}
+.toggle-switch .toggle-input { opacity: 0; width: 0; height: 0; }
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--color-border); /* Neutral off state */
+    transition: .3s;
+    border-radius: 28px; /* Fully rounded */
+}
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px; /* Larger circle */
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Add shadow to knob */
+}
+.toggle-input:checked + .toggle-slider {
+    background-color: var(--color-primary);
+}
+.toggle-input:focus + .toggle-slider {
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+.toggle-input:checked + .toggle-slider:before {
+    transform: translateX(22px); /* Adjust translation */
+}
+
+/* --- Tooltip (Cleaner Look) --- */
+.tooltip-trigger { position: relative; display: inline-block; }
+.tooltip-text {
+    visibility: hidden;
+    min-width: auto; /* Let content define width up to max */
+    max-width: 220px;
+    background-color: #333; /* Darker, more standard tooltip color */
+    color: #fff;
+    text-align: left; /* Better for multi-line */
+    border-radius: var(--border-radius-sm);
+    padding: 8px 12px;
+    position: absolute;
+    z-index: 101;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    font-size: 0.85em;
+    line-height: 1.5;
+    box-shadow: var(--shadow-soft);
+    transform: translateY(5px); /* Start slightly offset for animation */
+}
+.tooltip-text.bottom {
+    top: calc(100% + 8px); /* More spacing from trigger */
+    left: 50%;
+    transform: translateX(-50%) translateY(5px); /* Initial offset for animation */
+}
+.tooltip-text.bottom::after {
+    content: ""; position: absolute; bottom: 100%; left: 50%;
+    margin-left: -6px; border-width: 6px; border-style: solid;
+    border-color: transparent transparent #333 transparent;
+}
+.tooltip-text.top {
+    bottom: calc(100% + 8px); left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+}
+.tooltip-text.top::after {
+    content: ""; position: absolute; top: 100%; left: 50%;
+    margin-left: -6px; border-width: 6px; border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+.tooltip-trigger:hover .tooltip-text,
+.tooltip-trigger:focus-within .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Animate to final position */
+}
+/* Adjust for no X-transform if not centered */
+.tooltip-trigger:hover .tooltip-text:not(.bottom):not(.top), /* For default or side tooltips if added */
+.tooltip-trigger:focus-within .tooltip-text:not(.bottom):not(.top) {
+    transform: translateY(0);
+}
+
+
+/* --- Pagination (Modernized buttons) --- */
+.pagination {
+    margin-top: 30px; /* More space above pagination */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 8px; /* Spacing between pagination items */
+}
+.pagination ul {
+    list-style: none; padding: 0; margin: 0;
+    display: inline-flex; /* Keep items inline */
+    gap: 8px; /* Spacing for list items if ul is used */
+}
+.pagination button, .pagination a { /* Style for JS generated items */
+    display: inline-flex; /* Align icon and text if any */
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px; /* Balanced padding */
+    margin: 0; /* Remove margin, use gap from parent */
+    color: var(--color-text);
+    text-decoration: none;
+    background-color: var(--color-bg-container);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md); /* Softer radius */
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-family: var(--font-primary);
+    min-width: 40px; /* Ensure decent tap target */
+}
+.pagination button:hover, .pagination a:hover {
+    background-color: var(--color-bg-input);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+.pagination button.active, .pagination a.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(52, 152, 219, 0.2);
+}
+.pagination button:disabled, .pagination a.disabled {
+    color: var(--color-text-placeholder);
+    background-color: var(--color-bg-input);
+    border-color: var(--color-border-light);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.pagination .page-info {
+    margin: 0 10px;
+    font-size: 0.9em;
+    color: var(--color-text-light);
+    align-self: center; /* Vertically align with buttons */
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--color-bg-container);
+    color: var(--color-text-light);
+    padding: 30px 1.5rem; /* More padding */
+    margin-top: auto;
+    border-top: 1px solid var(--color-border-light);
+    font-size: 0.9em;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.03); /* Subtle top shadow */
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Space out sections */
+    max-width: 1100px;
+    margin: 0 auto 25px auto;
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between footer sections */
+}
+.footer-section {
+    flex: 1 1 200px; /* Allow wrapping and growing */
+    min-width: 180px;
+    margin: 0; /* Remove margin, use gap */
+}
+.footer-section h4 {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    margin-bottom: 15px; /* More space below heading */
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.footer-section ul { list-style: none; padding: 0; }
+.footer-section ul li a {
+    color: var(--color-text-light); /* Lighter link color */
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px; /* More space between links */
+    transition: color 0.2s ease;
+}
+.footer-section ul li a:hover {
+    color: var(--color-primary);
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border-light);
+    font-size: 0.85em;
+}
+
+/* --- Table Styles for User List (Modernized) --- */
+.table-container {
+    overflow-x: auto;
+    margin-top: 25px;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius-lg); /* Consistent large radius */
+    box-shadow: var(--shadow-soft);
+    background-color: var(--color-bg-container); /* Ensure bg for rounded corners */
+}
+#user-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#user-table th, #user-table td {
+    padding: 15px 20px; /* More padding */
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-light);
+    font-size: 0.95em; /* Slightly larger table text */
+}
+#user-table th {
+    background-color: var(--color-bg-input); /* Lighter header */
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--color-text);
+    text-transform: capitalize; /* More readable than uppercase */
+    letter-spacing: 0; /* Remove letter spacing */
+}
+#user-table tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.03); /* Very subtle primary hover */
+}
+#user-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* --- Messages (for login/register feedback) --- */
+.message {
+    padding: 12px 18px; /* More padding */
+    margin-bottom: 20px;
+    border-radius: var(--border-radius-md);
+    font-size: 0.95em;
+    text-align: center;
+    border: 1px solid transparent;
+    font-weight: 500;
+}
+.message.success {
+    background-color: rgba(46, 204, 113, 0.1); /* Lighter success bg */
+    color: var(--color-secondary-dark);
+    border-color: rgba(46, 204, 113, 0.3);
+}
+.message.error {
+    background-color: rgba(231, 76, 60, 0.1); /* Lighter error bg */
+    color: var(--color-error);
+    border-color: rgba(231, 76, 60, 0.3);
+}
+.message.warning { /* Added warning style */
+    background-color: rgba(243, 156, 18, 0.1);
+    color: var(--color-warning);
+    border-color: rgba(243, 156, 18, 0.3);
+}
+
+/* --- User List Header & Welcome --- */
+.user-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 10px;
+}
+.user-list-header h1 {
+    margin-bottom: 0; /* Remove bottom margin as it's in a flex container */
+    text-align: left; /* Align to left as per modern standard */
+}
+.welcome-message {
+    font-size: 1.05em;
+    color: var(--color-text-light);
+    font-family: var(--font-secondary);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- Responsive Adjustments (Refined) --- */
+@media (max-width: 992px) { /* For tablets */
+    .container {
+        max-width: 90%;
+        padding: 25px;
+    }
+    .user-list-header h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) { /* For smaller tablets and large phones */
+    .navigation {
+        padding: 0.75rem 1rem;
+    }
+    .nav-logo {
+        font-size: 1.5em;
+    }
+    .nav-links {
+        /* You might implement a hamburger menu here for true mobile-friendliness */
+        /* For now, just basic stacking if space runs out */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links li {
+        margin: 5px 10px;
+    }
+    .breadcrumbs-container, .footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .user-list-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .user-list-header h1 {
+        font-size: 1.75em;
+    }
+    .welcome-message {
+        margin-top: 5px;
+    }
+    .footer-content {
+        flex-direction: column;
+        text-align: center; /* Center text for stacked footer items */
+    }
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) { /* For mobile phones */
+    body {
+        font-size: 15px; /* Slightly smaller base font for mobile */
+    }
+    .container {
+        margin: 15px;
+        padding: 20px;
+        border-radius: var(--border-radius-md); /* Smaller radius on mobile */
+    }
+    .auth-container h1 {
+        font-size: 1.5em;
+    }
+    h1 { font-size: 1.75em; }
+    .button {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+    .button.full-width {
+        padding: 12px;
+    }
+    .text-input, .date-picker-input {
+        padding: 10px 12px;
+    }
+    .radio-group-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .form-group label { font-size: 0.85em; }
+    .table-container {
+        border-radius: var(--border-radius-md);
+    }
+    #user-table th, #user-table td {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
+    .pagination {
+        gap: 5px;
+    }
+    .pagination button, .pagination a {
+        padding: 6px 10px;
+        font-size: 0.85em;
+        min-width: 35px;
+    }
+}

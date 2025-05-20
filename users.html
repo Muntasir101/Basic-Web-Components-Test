@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List - User Management</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navigation">
+        <a href="index.html" class="nav-logo">UserSys</a>
+        <ul class="nav-links">
+            <li><a href="users.html" class="link-text active-nav">Users</a></li>
+            <li><a href="#" id="logout-link" class="link-text">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="breadcrumbs-container">
+        <ul class="breadcrumbs">
+            <li><a href="index.html" class="link-text">Home</a></li>
+            <li>Users</li>
+        </ul>
+    </div>
+
+    <main class="container">
+        <div class="user-list-header">
+            <h1>Registered Users</h1>
+            <div id="welcome-message" class="welcome-message"></div>
+        </div>
+
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                        <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5zM2 2v1.586l3.293 3.293A1 1 0 0 1 6 7.586V14l3-1V7.586a1 1 0 0 1 .707-.293L14 4.586V2z"/>
+                    </svg>
+                    Filter Users (Optional)
+                </button>
+                <div class="accordion-content">
+                    <div class="form-group">
+                        <label for="filter-name">Filter by Name:</label>
+                        <input type="text" id="filter-name" class="text-input" placeholder="Enter name to filter">
+                    </div>
+                    <div class="form-group">
+                        <button id="apply-filter-btn" class="button secondary-button">Apply Filter</button>
+                        <button id="clear-filter-btn" class="button">Clear Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-container">
+            <table id="user-table">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody id="user-table-body">
+                    </tbody>
+            </table>
+        </div>
+        <div id="no-users-message" style="display:none; text-align:center; padding: 20px;">No users found.</div>
+
+        <nav class="pagination" id="pagination-controls" aria-label="User list navigation">
+            </nav>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#" class="link-text">Profile Settings</a></li>
+                    <li><a href="#" class="link-text">Help Center</a></li>
+                </ul>
+            </div>
+             <div class="footer-section">
+                <h4>Account</h4>
+                <ul>
+                    <li><a href="#" id="footer-logout-link" class="link-text">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> UserSys. All rights reserved. (Dhaka, Bangladesh)</p>
+        </div>
+    </footer>
+    <script src="js/auth.js"></script>
+    <script src="js/users_list.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>
